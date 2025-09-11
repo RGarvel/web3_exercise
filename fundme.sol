@@ -32,9 +32,8 @@ contract FundMe {
 
     function fund() external payable {
         require(convertEthToUsd(msg.value) >= MINIMUM_VALUE, "YOU SHOULD FUND MORE ETH!!");
-        fundersToAccount[msg.sender] = msg.value;
         require(block.timestamp < deploymentTimestamp + lockTime, "The lock period has ended");
-
+        fundersToAccount[msg.sender] = msg.value;
     }
 
     function getChainlinkDataFeedLatestAnswer() public view returns (int) {
