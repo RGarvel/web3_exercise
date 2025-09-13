@@ -64,7 +64,51 @@
 			},
 			{
 				"inputs": [],
+				"name": "getFundSuccess",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "refund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_erc20Addr",
+						"type": "address"
+					}
+				],
+				"name": "setERC20Addr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "funder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountToUpdate",
+						"type": "uint256"
+					}
+				],
+				"name": "setFunderToAmount",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -96,7 +140,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"fundme.sol": "FundMe"
+			"fundtokenERC20_flattened.sol": "FundMe"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -110,20 +154,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol": {
-			"keccak256": "0x257a8d28fa83d3d942547c8e129ef465e4b5f3f31171e7be4739a4c98da6b4f0",
+		"fundtokenERC20_flattened.sol": {
+			"keccak256": "0xb760a13b252509af3874b70006a658af9749c5e6335d51e98aad857725a5564c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6d39e11b1dc7b9b8ccdabbc9be442ab7cda4a81c748f57e316dcb1bcb4a28bf9",
-				"dweb:/ipfs/QmaG6vz6W6iEUBsbHSBob5mdcitYxWjoygxREHpsJHfWrS"
-			]
-		},
-		"fundme.sol": {
-			"keccak256": "0xa5bf71b486e6a399d6db26a072a2d43054cd4a6a9e57a68adda721f084d33876",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://1e815cd53ce8b609475458add815ae78239a9c961df2ea32b62e40541b87d4fd",
-				"dweb:/ipfs/QmahPBCVBXikNCoAU9tmRk9YpUMbkLzeV8V9Njf1XQjd36"
+				"bzz-raw://a2d073a066d4823856fe278088d117a371bf5bc2ab6347499b15d2ca639f35b0",
+				"dweb:/ipfs/QmYc9zPNR4VThZSpFHdBYKCaooNsEoLVUkTMLiaXgvy5yj"
 			]
 		}
 	},

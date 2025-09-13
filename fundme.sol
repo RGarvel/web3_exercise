@@ -22,6 +22,10 @@ contract FundMe {
     uint256 deploymentTimestamp;
     uint256 lockTime;
 
+    address erc20Addr;
+
+    bool public getFundSuccess = false;
+
     constructor(uint256 _lockTime) {
         // sepolia testnet
         dataFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
@@ -68,6 +72,7 @@ contract FundMe {
         bool success;
         (success,) = payable(msg.sender).call{value: address(this).balance}("");
         require(success, "transfer tx failed");
+        getFundSuccess = true;
     }
 
     function refund() external windowClosed{
@@ -78,6 +83,15 @@ contract FundMe {
         require(success, "transfer tx failed");
         fundersToAccount[msg.sender] = 0;
 
+    }
+
+    function setFunderToAmount(address funder, uint256 amountToUpdate) external {
+        require(msg.sender == erc20Addr, "You do not have permission");
+        fundersToAccount[funder] = amountToUpdate;
+    }
+
+    function setERC20Addr(address _erc20Addr) public onlyOwner {
+        erc20Addr = _erc20Addr;
     }
 
     modifier windowClosed() {
